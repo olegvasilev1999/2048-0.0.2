@@ -159,7 +159,7 @@ int main()
 				for (int j = 0; j < 4; j++) {
 					if (b[i][j] > 0) {
 						a[i][p] = b[i][j];
-						b[j][i] = 0;
+						b[i][j] = 0;
 						p++;
 					}
 				}
@@ -201,7 +201,7 @@ int main()
 				for (int j = 3; j >= 0; j--) {
 					if (b[i][j] > 0) {
 						a[i][p] = b[i][j];
-						b[j][i] = 0;
+						b[i][j] = 0;
 						p--;
 					}
 				}
