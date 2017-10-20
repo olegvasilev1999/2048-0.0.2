@@ -7,24 +7,36 @@
 
 using namespace std;
 
-int main()
-{
-	int a[4][4] = { {0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0} };
-
-	int o;
+int random1() {
+	int n;
 	srand(time(0));
-	int k = rand() % 10 ;
+	int k = rand() % 10;
 	if (k < 9) {
-		o =2;
+		n = 2;
 	}
-	else o = 4;
-	int q = 20;
+	else n = 4;
+	return (n);
+}
+
+int random2() {
+	int q = rand();
 	srand(time(0) + q);
 	int i = rand() % 4;
-	q++;
-	srand(time(0) + q);
-	int j = rand() % 4;
-	q++;
+	return (i);
+}
+
+
+int main()
+
+{
+	int a[4][4] = { {0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0} };
+	int i , j ;
+	int o = random1();
+	
+	
+	 i = random2();
+	 j = random2();
+
 	a[i][j] = o;
 	
 	for (int i = 0; i < 4; i++) {
@@ -39,11 +51,11 @@ int main()
 	char oper;
 	cin >> oper;
 	while (oper != 'q') {
-
+		
 		switch (oper) {
 
 		case 'j': {
-			int b[4][4]= { { 0,0,0,0 },{ 0,0,0,0 },{ 0,0,0,0},{ 0,0,0,0 } };
+			int b[4][4];
 
 			for (int i = 0; i < 4; i++) {
 				int p = 3;
@@ -83,7 +95,7 @@ int main()
 				  break;
 
 		case 'k': {
-			int b[4][4]= { { 0,0,0,0 },{ 0,0,0,0 },{ 0,0,0,0},{ 0,0,0,0 } };
+			int b[4][4];
 
 			for (int i = 0; i < 4; i++) {
 				int p = 0;
@@ -125,7 +137,7 @@ int main()
 				  break;
 
 		case 'h': {
-			int b[4][4]= { { 0,0,0,0 },{ 0,0,0,0 },{ 0,0,0,0},{ 0,0,0,0 } };
+			int b[4][4];
 
 			for (int i = 0; i < 4; i++) {
 				int p = 0;
@@ -159,7 +171,7 @@ int main()
 				for (int j = 0; j < 4; j++) {
 					if (b[i][j] > 0) {
 						a[i][p] = b[i][j];
-						b[i][j] = 0;
+						b[j][i] = 0;
 						p++;
 					}
 				}
@@ -168,7 +180,7 @@ int main()
 				  break;
 
 		case 'l': {
-			int b[4][4]= { { 0,0,0,0 },{ 0,0,0,0 },{ 0,0,0,0},{ 0,0,0,0 } };
+			int b[4][4];
 
 			for (int i = 0; i < 4; i++) {
 				int p = 3;
@@ -201,7 +213,7 @@ int main()
 				for (int j = 3; j >= 0; j--) {
 					if (b[i][j] > 0) {
 						a[i][p] = b[i][j];
-						b[i][j] = 0;
+						b[j][i] = 0;
 						p--;
 					}
 				}
@@ -220,13 +232,8 @@ int main()
 		}
 		else l = 4;
 	m1:
-		int f = 1;
-		srand(time(0) + f);
-		int i = rand() % 4;
-		f++;
-		srand(time(0) + f);
-		int j = rand() % 4;
-		f++;
+		i = random2();
+		j = random2();
 		if (a[i][j] == 0) {
 			a[i][j] = l;
 		}
